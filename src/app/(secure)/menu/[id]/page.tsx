@@ -1,12 +1,14 @@
 'use client';
 
 import type { Item } from '@prisma/client';
-
-import client from '@/helper/client/client';
+import type { ChangeEvent, SyntheticEvent } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { SyntheticEvent, useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+
+import client from '@/helper/client/client';
+import { ReadMenu } from '@/components/menu/read/ReadMenu';
 
 // API
 export async function readMenuAPI(id: string) {
@@ -37,6 +39,11 @@ export default function ReadMenuPage({
 
   // Data Mutations
 
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setInputs({ ...inputs, [name]: value });
+  };
+
   const onBack = () => {
     router.back();
   };
@@ -55,5 +62,16 @@ export default function ReadMenuPage({
     }
   }, [menu]);
 
-  return <div>ReadMenuPage</div>;
+  return menu ? (
+    <ReadMenu
+      menu={menu}
+      count={count}
+      price={price}
+      onChange={onChange}
+      onBack={onBack}
+      onAddCart={onAddCart}
+    />
+  ) : (
+    <div>Loading</div>
+  );
 }
