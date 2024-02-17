@@ -17,17 +17,15 @@ export function FrontTotal({ front }: Props) {
             <span style={{ color: 'grey', fontSize: '1.5rem' }}>
               {unitOfAccount(front.totalAmount, '원')}
             </span>
-            원
           </Pane>
           <Pane>
-            예약금 : <Reserve>{unitOfAccount(front.reserve, '원')}</Reserve>원
+            예약금 : <Reserve>{unitOfAccount(front.reserve, '원')}</Reserve>
           </Pane>
           <Pane>
             결제금액 :{' '}
             <span style={{ color: 'blue', fontSize: '2rem' }}>
               {unitOfAccount(front.totalAmount - front.reserve, '원')}
             </span>
-            원
           </Pane>
         </>
       ) : (

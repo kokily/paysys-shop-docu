@@ -19,12 +19,12 @@ export async function DELETE(_: NextRequest, { params: { id } }: any) {
     await db.bill.update({
       where: { id },
       data: {
-        reserve: undefined,
+        reserve: null,
         updatedAt: new Date(),
       },
     });
 
-    return NextResponse.json({ message: 'ok' });
+    return NextResponse.json({ message: '예약금 삭제' });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
