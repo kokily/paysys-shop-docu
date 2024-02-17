@@ -32,6 +32,7 @@ export async function POST(req: NextRequest) {
     const bill = await db.bill.create({
       data: {
         ...body,
+        items: cart.items as any,
         totalAmount,
         userId: user.id,
         username: user.username,
