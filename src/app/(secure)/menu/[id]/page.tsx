@@ -1,11 +1,12 @@
 'use client';
 
-import type { Item } from '@prisma/client';
+import type { Cart, Item } from '@prisma/client';
 import type { ChangeEvent, SyntheticEvent } from 'react';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
 
 import client from '@/helper/client/client';
 import { ReadMenu } from '@/components/menu/read/ReadMenu';
@@ -16,6 +17,11 @@ export async function readMenuAPI(id: string) {
   return response.data;
 }
 
+async function addCartAPI(payload: AddCartPayload) {
+  const response = await client.post<Cart>('/cart/add', payload);
+  return response.data;
+}
+
 export default function ReadMenuPage({
   params: { id },
 }: {
@@ -23,6 +29,7 @@ export default function ReadMenuPage({
 }) {
   const { data } = useSession();
   const router = useRouter();
+  const queryClient = useQueryClient();
 
   const [inputs, setInputs] = useState({
     count: '',
@@ -38,6 +45,7 @@ export default function ReadMenuPage({
   });
 
   // Data Mutations
+  const addCartMutate = useMutation({ mutationFn: addCartAPI });
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -50,6 +58,29 @@ export default function ReadMenuPage({
 
   const onAddCart = async (e: SyntheticEvent) => {
     e.preventDefault();
+
+    if ([count, price].includes('')) {
+      toast.error('빈 칸 없이 작성해 주세요');
+      return;
+    }
+
+    await addCartMutate.mutateAsync(
+      {
+        count: parseInt(count),
+        price: parseInt(price),
+        userId: data?.user.id!,
+        itemId: id,
+      },
+      {
+        onSuccess: () => {
+          queryClient.invalidateQueries({ queryKey: ['readMenu', 'cart'] });
+          router.back();
+        },
+        onError: (err: any) => {
+          toast.error(err.message);
+        },
+      },
+    );
   };
 
   useEffect(() => {

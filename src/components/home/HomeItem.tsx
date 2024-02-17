@@ -58,4 +58,16 @@ const HomeItemContainer = styled.div<Props>`
     css`
       background-color: #1098ad;
     `}
+
+  ${(props) =>
+    props.reserve &&
+    css`
+      background-color: #68a614;
+    `}
+
+  ${(props) =>
+    props.general &&
+    css`
+      background-color: #e47112;
+    `}
 `;
