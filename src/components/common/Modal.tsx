@@ -21,10 +21,10 @@ export function Modal({ visible, title, content, onConfirm, onCancel }: Props) {
         <p>{content}</p>
 
         <ButtonsBox>
-          <Button cancel={true} onClick={onCancel}>
+          <Button $cancel={true} onClick={onCancel}>
             취소
           </Button>
-          <Button submit={true} onClick={onConfirm}>
+          <Button $submit={true} onClick={onConfirm}>
             확인
           </Button>
         </ButtonsBox>
