@@ -11,10 +11,10 @@ interface Props {
 export function ReadMenuButtons({ onAddCart, onBack }: Props) {
   return (
     <ButtonsContainer>
-      <Button submit={true} onClick={onAddCart}>
+      <Button $submit={true} onClick={onAddCart}>
         전표전송
       </Button>
-      <Button cancel={true} onClick={onBack}>
+      <Button $cancel={true} onClick={onBack}>
         취소하기
       </Button>
     </ButtonsContainer>

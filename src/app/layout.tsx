@@ -6,6 +6,8 @@ import SessionWrapper from '@/helper/wrapper/SessionWrapper';
 import StyledWrapper from '@/helper/wrapper/StyledWrapper';
 import ToastWrapper from '@/helper/wrapper/ToastWrapper';
 
+import 'react-toastify/ReactToastify.css';
+
 const NanumGothic = localFont({
   src: '../../public/fonts/NanumGothic-Regular.woff2',
   display: 'swap',

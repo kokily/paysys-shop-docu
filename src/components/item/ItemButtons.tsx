@@ -12,13 +12,13 @@ interface Props {
 export function ItemButtons({ onBack, onEdit, onModalOpen }: Props) {
   return (
     <ButtonsContainer>
-      <Button submit={true} onClick={onBack}>
+      <Button $submit={true} onClick={onBack}>
         목록
       </Button>
-      <Button edit={true} onClick={onEdit}>
+      <Button $edit={true} onClick={onEdit}>
         수정
       </Button>
-      <Button remove={true} onClick={onModalOpen}>
+      <Button $remove={true} onClick={onModalOpen}>
         삭제
       </Button>
     </ButtonsContainer>

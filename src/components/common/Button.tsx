@@ -4,16 +4,16 @@ import { shadow } from '@/helper/client/global';
 
 interface Props {
   children: string;
-  cancel?: boolean;
-  submit?: boolean;
-  edit?: boolean;
-  remove?: boolean;
-  restore?: boolean;
-  menu?: boolean;
-  reserve?: boolean;
-  employee?: boolean;
-  admin?: boolean;
-  fullSize?: boolean;
+  $cancel?: boolean;
+  $submit?: boolean;
+  $edit?: boolean;
+  $remove?: boolean;
+  $restore?: boolean;
+  $menu?: boolean;
+  $reserve?: boolean;
+  $employee?: boolean;
+  $admin?: boolean;
+  $fullSize?: boolean;
   onClick?: (e: any) => void;
 }
 
@@ -54,14 +54,14 @@ const Container = styled.button<Props>`
     margin-left: 1rem;
 
     ${(props) =>
-      props.fullSize &&
+      props.$fullSize &&
       css`
-        margin-left: 0;
+        margin-left: 0px;
       `}
   }
 
   ${(props) =>
-    props.cancel &&
+    props.$cancel &&
     css`
       border: 1px solid #fa5252;
       background: white;
@@ -74,7 +74,7 @@ const Container = styled.button<Props>`
     `}
 
   ${(props) =>
-    props.submit &&
+    props.$submit &&
     css`
       border: 1px solid #7950f2;
       background: white;
@@ -87,7 +87,7 @@ const Container = styled.button<Props>`
     `}
 
     ${(props) =>
-    props.edit &&
+    props.$edit &&
     css`
       border: 1px solid #fab005;
       background: white;
@@ -100,7 +100,7 @@ const Container = styled.button<Props>`
     `}
 
     ${(props) =>
-    props.fullSize &&
+    props.$fullSize &&
     css`
       width: 100%;
       margin-bottom: 1rem;
@@ -111,7 +111,7 @@ const Container = styled.button<Props>`
     `}
 
     ${(props) =>
-    props.remove &&
+    props.$remove &&
     css`
       border: 1px solid #fa5252;
       background: white;
@@ -124,7 +124,7 @@ const Container = styled.button<Props>`
     `}
 
   ${(props) =>
-    props.restore &&
+    props.$restore &&
     css`
       border: 1px solid #15aabf;
       background: white;
@@ -137,7 +137,7 @@ const Container = styled.button<Props>`
     `}
 
 ${(props) =>
-    props.menu &&
+    props.$menu &&
     css`
       border: 1px solid #4c6ef5;
       background: white;
@@ -150,7 +150,7 @@ ${(props) =>
     `}
 
 ${(props) =>
-    props.reserve &&
+    props.$reserve &&
     css`
       border: 1px solid #fab005;
       background: white;
@@ -163,7 +163,7 @@ ${(props) =>
     `}
 
 ${(props) =>
-    props.employee &&
+    props.$employee &&
     css`
       border: 1px solid #fab005;
       background: white;
@@ -176,7 +176,7 @@ ${(props) =>
     `}
 
 ${(props) =>
-    props.admin &&
+    props.$admin &&
     css`
       border: 1px solid #4c6ef5;
       background: white;

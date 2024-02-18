@@ -14,7 +14,7 @@ export function ListMenu({ menu, onBack, onReadMenu }: Props) {
     <ListMenuContainer>
       <Title>
         <h2>{menu[0] && menu[0].divide}</h2>
-        <Button cancel={true} onClick={onBack}>
+        <Button $cancel={true} onClick={onBack}>
           뒤 로
         </Button>
       </Title>

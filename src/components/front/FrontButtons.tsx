@@ -24,26 +24,26 @@ export function FrontButtons(props: Props) {
           front &&
           (props.isAdmin || front.userId === props.userId) && (
             <>
-              <Button remove={true} onClick={props.onModalClick}>
+              <Button $remove={true} onClick={props.onModalClick}>
                 삭 제
               </Button>
-              <Button restore={true} onClick={props.onRestoreBill}>
+              <Button $restore={true} onClick={props.onRestoreBill}>
                 수 정
               </Button>
             </>
           )}
-        <Button menu={true} onClick={props.onBack}>
+        <Button $menu={true} onClick={props.onBack}>
           목 록
         </Button>
 
         {props.userId && front && props.isAdmin && (
           <>
             {!front.reserve || front.reserve === 0 ? (
-              <Button reserve={true} onClick={props.onReservePage}>
+              <Button $reserve={true} onClick={props.onReservePage}>
                 + 예약금
               </Button>
             ) : (
-              <Button reserve={true} onClick={props.onRemoveReserve}>
+              <Button $reserve={true} onClick={props.onRemoveReserve}>
                 예약금 삭제
               </Button>
             )}

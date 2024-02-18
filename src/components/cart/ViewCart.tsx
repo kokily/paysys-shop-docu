@@ -52,10 +52,10 @@ export function ViewCart(props: Props) {
               />
             </div>
 
-            <Button remove={true} onClick={props.onModalClick}>
+            <Button $remove={true} onClick={props.onModalClick}>
               전체삭제
             </Button>
-            <Button submit={true} onClick={props.onAddBill}>
+            <Button $submit={true} onClick={props.onAddBill}>
               전송하기
             </Button>
           </Contents>

@@ -34,7 +34,7 @@ export function ListItems(props: Props) {
       />
 
       <Link href="/items/add">
-        <Button submit={true}>품목 추가</Button>
+        <Button $submit={true}>품목 추가</Button>
       </Link>
 
       <ItemsTable items={items} onReadItem={props.onReadItem} />

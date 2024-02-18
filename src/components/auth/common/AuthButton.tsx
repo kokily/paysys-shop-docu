@@ -7,7 +7,7 @@ interface Props {
 
 export function AuthButton({ onLogin }: Props) {
   return (
-    <Button>
+    <Button onClick={onLogin}>
       <Layer className="layer">어서오세요!</Layer>
       로그인
     </Button>

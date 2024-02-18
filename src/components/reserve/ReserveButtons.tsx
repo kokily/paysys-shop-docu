@@ -11,10 +11,10 @@ interface Props {
 export function ReserveButton({ onBack, onAddReserve }: Props) {
   return (
     <Container>
-      <Button cancel={true} onClick={onBack}>
+      <Button $cancel={true} onClick={onBack}>
         취 소
       </Button>
-      <Button submit={true} onClick={onAddReserve}>
+      <Button $submit={true} onClick={onAddReserve}>
         확 인
       </Button>
     </Container>

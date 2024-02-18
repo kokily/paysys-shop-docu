@@ -11,10 +11,10 @@ interface Props {
 export function PasswordButtons({ onBack, onChangePassword }: Props) {
   return (
     <ButtonsContainer>
-      <Button cancel={true} onClick={onBack}>
+      <Button $cancel={true} onClick={onBack}>
         취 소
       </Button>
-      <Button submit={true} onClick={onChangePassword}>
+      <Button $submit={true} onClick={onChangePassword}>
         확 인
       </Button>
     </ButtonsContainer>

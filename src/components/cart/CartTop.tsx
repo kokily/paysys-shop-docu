@@ -37,7 +37,7 @@ export function CartTop({ cart, onRemoveOne }: Props) {
                 </Td>
                 <Td>
                   <Button
-                    remove={true}
+                    $remove={true}
                     onClick={() => onRemoveOne(item.id, item.name)}
                   >
                     삭제
